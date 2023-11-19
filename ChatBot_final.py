@@ -61,12 +61,12 @@ if __name__ == "__main__":
         elif "time" in ai.text:
             res = ai.action_time()
 
-        elif any(i in ai.text for i in ["thank", "thanks"]):
-            res = np.random.choice \
-                (["you're welcome!", "anytime!", "no problem!", "cool!", "I'm here if you need me!", "mention not"])
+        elif any(i in ai.text for i in ["thank you", "thanks"]):
+            res = np.random.choice
+                (["You're welcome!", "Anytime!", "np", "cool cool cool", "I'm here if you need me!", "sure dude"])
 
         elif any(i in ai.text for i in ["exit", "close"]):
-            res = np.random.choice(["Tata", "Have a good day", "Bye", "Goodbye", "Hope to meet soon", "peace out!"])
+            res = np.random.choice(["Sayonara", "Have a good day", "Byeee", "Goodbye", "Hope to help", "Dev out!"])
 
             ex = False
       
@@ -74,7 +74,7 @@ if __name__ == "__main__":
             if ai.text =="ERROR":
                 res = "Sorry, come again?"
             else:
-                chat = nlp(transformers.Conversation(ai.text), pad_token_id=50256)
+                chat = nlp(transformers.Conversation(ai.text), pad_token_id=0)
                 res = str(chat)
                 res = res[res.find("bot >> ") + 6:].strip()
 
